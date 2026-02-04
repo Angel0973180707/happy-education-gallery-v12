@@ -1,11 +1,9 @@
-function showContent(hallId) {
-    // 隱藏所有內容
-    document.querySelectorAll('.info-content').forEach(el => {
-        el.style.display = 'none';
-    });
+function showContent(id) {
+    // 隱藏所有
+    document.querySelectorAll('.hall-content').forEach(c => c.style.display = 'none');
     
-    // 顯示目標內容
-    const target = document.getElementById(hallId);
+    // 顯示目標
+    const target = document.getElementById(id);
     if(target) {
         target.style.display = 'block';
         target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
