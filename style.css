@@ -1,55 +1,51 @@
-:root { --primary: #d68a5a; --bg: #fdf5e6; --white: #ffffff; }
-body { background: var(--bg); font-family: sans-serif; margin: 0; }
-.main-header { text-align: center; padding: 20px; background: white; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+:root { --primary: #d68a5a; --bg: #fdf5e6; }
+body { background: var(--bg); margin: 0; padding-bottom: 40px; }
 
-/* --- 拼圖式地圖佈局 --- */
+.main-header { text-align: center; padding: 20px; background: white; border-radius: 0 0 30px 30px; }
+
+/* 網格布局：這部分決定了是否「平」 */
 .gallery-map {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 兩欄 */
-    grid-gap: 12px;
+    grid-template-columns: repeat(2, 1fr); /* 強制平分兩欄，不會再變單列 */
+    gap: 12px;
     padding: 15px;
-    grid-auto-rows: minmax(110px, auto); /* 固定基礎高度，方便拼圖 */
 }
 
 .map-cell {
     background: white;
-    border-radius: 24px;
-    overflow: hidden;
+    border-radius: 20px;
+    overflow: hidden; /* 確保圖片不超出格子 */
     position: relative;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    cursor: pointer;
-    transition: 0.3s transform;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
 }
-.map-cell:active { transform: scale(0.96); }
 
-/* 鎮館之寶：橫跨兩格 */
-.treasure { grid-column: 1 / span 2; height: 160px; }
+/* 創造立體高低落差 */
+.treasure { grid-column: span 2; aspect-ratio: 2 / 1; } /* 寬型 */
+.brain { grid-row: span 2; aspect-ratio: 1 / 1.8; }   /* 垂直拉長塊，打破平行線 */
+.soul { aspect-ratio: 1.1 / 1; }
+.relation { aspect-ratio: 1.1 / 1; }
+.story { grid-column: span 2; aspect-ratio: 3 / 1; }
 
-/* 心腦展廳：垂直拉長跨越兩行 (這是地圖感的關鍵) */
-.brain { grid-row: span 2; height: 232px; }
+.map-cell img { width: 100%; height: 100%; object-fit: cover; }
 
-/* 右側兩塊方塊 */
-.soul { height: 110px; }
-.relation { height: 110px; }
+.cell-label {
+    position: absolute; bottom: 0; width: 100%;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 0; text-align: center;
+    font-weight: bold; font-size: 0.85rem;
+}
 
-/* 生命劇場：底部橫跨 */
-.story { grid-column: 1 / span 2; height: 100px; }
+/* 智多星樣式 */
+.master-section { padding: 0 15px; }
+.master-card { background: white; border-radius: 20px; padding: 15px; border-left: 6px solid var(--primary); }
+.master-header { display: flex; align-items: center; gap: 12px; }
+.master-avatar { width: 50px; height: 50px; border-radius: 50%; }
+.master-title h3 { margin: 0; font-size: 1rem; }
+.master-title p { margin: 0; font-size: 0.75rem; color: #888; }
+.consult-btn { margin-left: auto; background: var(--primary); color: white; border: none; padding: 6px 12px; border-radius: 12px; }
 
-.map-cell img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
-.cell-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; }
-.cell-overlay h3 { margin: 0; font-size: 0.9rem; }
-.tag { background: var(--primary); font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; }
-
-/* 功能卡片區 */
-.tool-zone { padding: 0 15px; }
-.tool-item { background: white; border-radius: 20px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; border-left: 6px solid var(--primary); }
-.avatar, .icon { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-.info h4 { margin: 0; color: var(--primary); }
-.info p { margin: 0; font-size: 0.8rem; color: #777; }
-.btn { margin-left: auto; background: var(--primary); color: white; border: none; padding: 5px 15px; border-radius: 15px; }
-
-/* 展廳內容面版 */
-.content-panel { display: none; padding: 15px; }
-.content-panel.active { display: block; animation: slideUp 0.4s ease; }
-.inner-card { background: white; padding: 25px; border-radius: 25px; text-align: center; }
-@keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+/* 內容面板 */
+.info-panel { padding: 15px; }
+.info-content { display: none; background: white; padding: 20px; border-radius: 20px; text-align: center; }
+.info-content.active { display: block; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
