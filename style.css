@@ -1,20 +1,23 @@
-:root { --primary: #d68a5a; --bg: #fdf5e6; }
-body { font-family: "Microsoft JhengHei", sans-serif; background: var(--bg); margin: 0; padding: 0; }
-.main-header { text-align: center; background: white; padding: 20px; }
-.home-slogan { width: 90%; max-width: 500px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+:root { --primary: #d68a5a; --bg: #fdf5e6; --hall: #ffffff; }
+body { font-family: "Microsoft JhengHei", sans-serif; background: var(--bg); margin: 0; color: #333; line-height: 1.6; }
+.main-header { text-align: center; background: white; padding: 25px 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.home-slogan { width: 95%; max-width: 500px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 
-/* 展館地圖網格 */
+/* 展館地圖佈局 */
 .gallery-map { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-.hall-entrance { background: white; border-radius: 15px; padding: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; }
-.hall-entrance img { width: 100%; height: 110px; object-fit: cover; border-radius: 10px; }
-.treasure-hall { grid-column: 1 / span 2; background: #869a8e; color: white; }
-.treasure-hall img { height: 150px; }
+.hall-entrance { background: white; border-radius: 18px; padding: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; border: 1px solid #f0f0f0; }
+.hall-entrance:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+.hall-entrance img { width: 100%; height: 110px; object-fit: cover; border-radius: 12px; margin-bottom: 8px; }
 
-/* 內容區顯示/隱藏 */
-.hall-content { background: white; margin: 20px; padding: 20px; border-radius: 20px; display: none; }
-.hall-content.active { display: block; animation: slideDown 0.4s ease; }
+/* 鎮館之寶特殊樣式 */
+.treasure-hall { grid-column: 1 / span 2; background: linear-gradient(135deg, #a5b9ad, #869a8e); border: 2px solid #fff; }
+.treasure-hall .hall-title { color: white; font-size: 1.1rem; }
 
-.mastermind-avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #ffd700; }
-.action-btn { background: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; }
+/* 展廳內容切換 */
+.hall-content { background: white; margin: 10px 20px 20px; padding: 25px; border-radius: 20px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.hall-content.active { display: block; animation: fadeIn 0.5s ease; }
 
-@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.mastermind-avatar { width: 70px; height: 70px; border-radius: 50%; border: 3px solid #ffd700; margin-bottom: 10px; }
+.action-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
