@@ -1,90 +1,86 @@
 :root {
-    --accent: rgba(214, 138, 90, 0.85);
-    --white: rgba(255, 255, 255, 0.9);
+    --primary: #d68a5a;
+    --glass: rgba(255, 255, 255, 0.85);
 }
 
 body {
     margin: 0;
-    /* 核心：將您的手繪插畫設為底圖 */
-    background: url('1000013249.png') no-repeat center center fixed;
+    /* 核心：固定這張漂亮的插畫作為全站底圖 */
+    background: url('1000013249.png') no-repeat center top fixed;
     background-size: cover;
-    min-height: 100vh;
     font-family: "Microsoft JhengHei", sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
-/* 建立一個與底圖等比例的感應層 */
+/* 這是您的地圖畫布，限制寬度才能創造「地圖感」 */
 .gallery-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    height: 100vh;
-    margin: 0 auto;
-    overflow: hidden;
+    max-width: 450px; /* 針對手機優化寬度 */
+    height: 90vh;
+    margin-top: 50px;
 }
 
-/* 統一按鈕樣式：像立體的展覽說明牌 */
+/* 讓圖片不再是巨大的清單，而是小巧的導覽點 */
 .map-cell {
-    position: absolute;
-    background: var(--white);
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: absolute; /* 開啟絕對定位，這才是驚喜的來源 */
+    background: var(--glass);
+    border-radius: 15px;
+    padding: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     border: 2px solid white;
-    cursor: pointer;
+    width: 140px; /* 固定寬度，避免忽大忽小 */
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 10;
-}
-
-.map-cell:hover {
-    transform: scale(1.1) translateY(-10px);
-    background: white;
-    box-shadow: 0 15px 35px rgba(214, 138, 90, 0.4);
+    cursor: pointer;
+    z-index: 5;
 }
 
 .map-cell img {
-    width: 100px; /* 縮小尺寸，配合地圖比例 */
-    height: 70px;
+    width: 100%;
+    height: 80px;
     object-fit: cover;
-    border-radius: 8px;
-    display: block;
+    border-radius: 10px;
 }
 
 .label {
     font-size: 0.75rem;
     font-weight: bold;
-    color: #5d4037;
     text-align: center;
-    margin-top: 5px;
+    color: var(--primary);
+    margin-top: 4px;
 }
 
-/* --- 驚喜關鍵：根據底圖房間位置進行精確對位 --- */
+/* 📍 精確對位：讓按鈕出現在手繪圖中的房間位置 */
 
-/* 鎮館之寶：放在左側接待大廳 */
-.treasure { top: 25%; left: 15%; }
+/* 鎮館之寶：放在左上方大廳 */
+.treasure { top: 5%; left: 5%; width: 180px; }
 
-/* 心腦展廳：放在右後方的畫廊 */
-.brain { top: 15%; right: 15%; }
+/* 心腦展廳：放在右側長型走廊 */
+.brain { top: 25%; right: 5%; height: 220px; width: 130px; }
+.brain img { height: 160px; }
 
-/* 心靈會所：放在中央的陽光中庭 */
-.soul { top: 45%; left: 45%; }
+/* 心靈會所：放在中央落地窗區 */
+.soul { top: 35%; left: 10%; }
 
-/* 關係雅座：放在右側的諮商室 */
-.relation { top: 55%; right: 10%; }
+/* 關係雅座：放在右下角溫馨區 */
+.relation { bottom: 25%; right: 10%; }
 
-/* 生命劇場：放在底部的大型展覽室 */
-.story { bottom: 15%; left: 20%; }
+/* 生命劇場：放在底部大房間 */
+.story { bottom: 5%; left: 5%; width: 200px; }
 
-/* 幸福智多星 [cite: 2026-01-22]：設計成漂浮的導覽員卡片 */
-.mastermind-float {
+/* 幸福智多星：懸浮在底部的對話框 [cite: 2026-01-20] */
+.master-card {
     position: fixed;
-    bottom: 30px;
-    right: 20px;
-    width: 150px;
-    background: var(--white);
-    padding: 10px;
+    bottom: 20px;
+    left: 10px;
+    right: 10px;
+    background: white;
     border-radius: 20px;
-    border-left: 5px solid #d68a5a;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    text-align: center;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
+    border-left: 6px solid var(--primary);
     z-index: 100;
 }
