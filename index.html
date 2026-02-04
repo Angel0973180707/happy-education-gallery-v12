@@ -9,14 +9,14 @@
 <body>
     <header class="main-header">
         <h1>天使笑長 Angel</h1>
-        <p>幸福教養展覽館</p>
-        <img src="home.webp" alt="幸福教養概念館" class="home-slogan">
+        <p>幸福教養概念館</p>
     </header>
 
     <main class="gallery-container">
         <section class="gallery-map">
             <div class="hall-entrance treasure-hall" data-target="treasure-content">
                 <img src="home.webp" alt="教養幸福經">
+                <div class="hall-tag">館藏精華</div>
                 <div class="hall-title">📖 鎮館之寶：教養幸福經</div>
             </div>
             
@@ -24,54 +24,59 @@
                 <img src="brain.webp" alt="心腦展廳">
                 <div class="hall-title">🏛️ 心腦展廳</div>
             </div>
+            
             <div class="hall-entrance" data-target="soul-content">
                 <img src="soul.webp" alt="心靈會所">
                 <div class="hall-title">🧘 心靈會所</div>
             </div>
+            
             <div class="hall-entrance" data-target="relation-content">
                 <img src="relation.jpg" alt="關係雅座">
                 <div class="hall-title">☕ 關係雅座</div>
             </div>
+            
             <div class="hall-entrance" data-target="life-content">
                 <img src="story.webp" alt="生命劇場">
                 <div class="hall-title">🎭 生命劇場</div>
             </div>
         </section>
 
-        <div id="display-area">
+        <div id="content-display">
             <section id="treasure-content" class="hall-content active">
-                <h2>📜 鎮館之寶：教養幸福經</h2>
-                <div class="content-body">
+                <div class="hall-detail-card">
+                    <h2>📜 鎮館之寶：教養幸福經</h2>
                     <p>這是笑長為您準備的智慧結晶，讓愛發揮力量。</p>
                     <button class="action-btn">🧘 進入深度閱讀</button>
                 </div>
             </section>
 
             <section id="brain-content" class="hall-content">
-                <h2>🏛️ 心腦展廳</h2>
-                <div class="content-body">
+                <div class="hall-detail-card">
+                    <h2>🏛️ 心腦展廳</h2>
                     <p>探索腦科學實踐，改變從理解開始。</p>
                     <button class="action-btn">🚀 取用實踐工具</button>
                 </div>
             </section>
-            
             </div>
 
-        <section class="practice-workshop">
-            <div class="workshop-header">
-                <img src="tool.webp" alt="實踐工房" class="workshop-icon">
-                <h2>📦 實踐工房</h2>
+        <section class="bottom-tools">
+            <div class="tool-card mastermind-card">
+                <img src="1769671255343.jpg" alt="智多星" class="avatar">
+                <div class="tool-info">
+                    <h3>🌟 幸福智多星</h3>
+                    <p>讓我們一起為幸福充電</p>
+                </div>
+                <button class="mini-btn">✨ 抽取啟示</button>
             </div>
-            <div class="workshop-items">
-                <div class="workshop-item">情緒斷點冷卻工具 <button class="action-btn">取用</button></div>
-            </div>
-        </section>
 
-        <section class="mastermind-section">
-            <img src="1769671255343.jpg" alt="智多星" class="mastermind-avatar">
-            <h2>🌟 幸福智多星</h2>
-            <p>讓我們一起為幸福充電</p>
-            <button class="mastermind-btn">✨ 抽取今日幸福啟示</button>
+            <div class="tool-card workshop-card">
+                <img src="tool.webp" alt="實踐工房" class="icon">
+                <div class="tool-info">
+                    <h3>📦 實踐工房</h3>
+                    <p>情緒斷點冷卻工具</p>
+                </div>
+                <button class="mini-btn">取用</button>
+            </div>
         </section>
     </main>
 
