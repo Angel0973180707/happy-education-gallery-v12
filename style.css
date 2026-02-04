@@ -1,49 +1,69 @@
-:root { --primary: #d68a5a; --bg: #fdf5e6; --white: #ffffff; }
-
-body { background: var(--bg); font-family: sans-serif; margin: 0; padding-bottom: 50px; }
-.main-header { text-align: center; padding: 25px; background: var(--white); border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-
-/* --- 地圖拼圖核心 --- */
-.gallery-map {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 兩欄 */
-    grid-gap: 12px;
-    padding: 15px;
-    grid-auto-rows: minmax(110px, auto);
+:root {
+    --primary: #d68a5a;
+    --white: rgba(255, 255, 255, 0.92);
 }
 
-.hall-entrance {
-    background: var(--white);
+body {
+    margin: 0;
+    /* 這裡實現「實境感」：優先抓 bg.jpg，若無則顯示優雅的畫廊漸層 */
+    background: 
+        linear-gradient(rgba(253, 245, 230, 0.7), rgba(253, 245, 230, 0.7)),
+        url('bg.jpg'),
+        radial-gradient(circle at center, #fff5e6 0%, #e6d5c0 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+/* 地圖拼圖容器：確保不再平排 */
+.gallery-map {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    padding: 20px;
+    perspective: 1000px; /* 增加 3D 視角感 */
+}
+
+.map-cell {
+    background: white;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    transition: 0.3s transform;
+    border: 4px solid white; /* 像畫框一樣 */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12); /* 創造立體漂浮感 */
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 }
-.hall-entrance:active { transform: scale(0.96); }
 
-/* 鎮館之寶：橫跨頂部 */
-.treasure-hall { grid-column: 1 / span 2; height: 160px; border: 2px solid #869a8e; }
+.map-cell:hover { transform: translateY(-5px) rotate(1deg); }
 
-/* 心腦展廳：垂直拉長跨越兩行 (這是解決「平扁感」的關鍵) */
-.brain-hall { grid-row: span 2; height: 240px; }
+/* --- 拼圖尺寸規劃 --- */
+.treasure { grid-column: span 2; height: 180px; } /* 頂部大廳 */
+.brain { grid-row: span 2; height: 240px; }     /* 左側立柱 */
+.soul { height: 115px; }                        /* 右側閣樓一 */
+.relation { height: 115px; margin-top: -10px; } /* 右側閣樓二 (重疊感) */
+.story { grid-column: span 2; height: 100px; }   /* 底部基石 */
 
-/* 右側兩塊方塊 */
-.soul-hall { height: 110px; }
-.relation-hall { height: 110px; margin-top: -5px; } /* 輕微重疊感 */
+.map-cell img { width: 100%; height: 100%; object-fit: cover; }
 
-/* 生命劇場：底部基石 */
-.story-hall { grid-column: 1 / span 2; height: 100px; }
+.label {
+    position: absolute; bottom: 0; width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 0; text-align: center;
+    font-weight: bold; color: var(--primary); font-size: 0.9rem;
+}
 
-.hall-entrance img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
-.hall-label { position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.88); backdrop-filter: blur(5px); padding: 6px 0; text-align: center; font-weight: bold; font-size: 0.8rem; }
-.hall-tag { position: absolute; top: 10px; left: 10px; background: var(--primary); color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem; }
-
-/* 智多星與內容區 */
-.mastermind-card { background: white; margin: 15px; padding: 15px; border-radius: 20px; display: flex; align-items: center; gap: 15px; border-left: 5px solid var(--primary); }
-.master-avatar { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #ffd700; }
-.hall-content { display: none; padding: 15px; }
-.hall-content.active { display: block; animation: fadeInUp 0.4s; }
-.card { background: white; padding: 20px; border-radius: 20px; text-align: center; }
-
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* 智多星：設計成漂浮的接待櫃台 */
+.mastermind-counter {
+    background: var(--white);
+    border-radius: 25px;
+    margin: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(214, 138, 90, 0.15);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.mastermind-counter img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid white; }
