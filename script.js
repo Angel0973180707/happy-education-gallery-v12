@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
             
-            // 移除所有啟動狀態
+            // 隱藏所有
             contents.forEach(c => c.classList.remove('active'));
             
-            // 啟動目標展廳
+            // 顯示目標並平滑滾動
             const target = document.getElementById(targetId);
             if(target) {
                 target.classList.add('active');
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
     });
