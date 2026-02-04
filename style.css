@@ -1,34 +1,45 @@
-/* 全螢幕背景設定 */
+/* 清除預設邊距，確保全螢幕顯示 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 鎖定畫面，維持實境感 */
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    /* 這裡務必確保檔名與您的圖檔一致 */
-    background: url('1000013249.png') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    overflow: hidden; /* 保持地圖感，不隨意滾動 */
+    /* 修正檔名：map-pg.png */
+    background: url('map-pg.png') no-repeat center center;
+    background-size: cover; 
+    background-color: #fdf5e6;
     font-family: "Microsoft JhengHei", sans-serif;
 }
 
-/* 讓按鈕變成精緻的「地圖標籤」 */
+.gallery-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 精緻標籤：將圖片縮小並「釘」在地圖上 */
 .map-cell {
     position: absolute;
-    width: 100px; /* 自動縮小，不用自己轉檔 */
-    background: rgba(255, 255, 255, 0.85);
+    width: 105px; /* 自動縮小原圖 */
+    background: rgba(255, 255, 255, 0.9);
     border: 2px solid white;
     border-radius: 12px;
     padding: 5px;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     text-align: center;
+    transition: 0.3s;
     cursor: pointer;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 10;
 }
 
+/* 自動裁切原圖，保證不變形 */
 .map-cell img {
     width: 100%;
-    height: 60px;
-    object-fit: cover; /* 自動裁切多餘部分，保證不變形 */
+    height: 65px;
+    object-fit: cover; 
     border-radius: 8px;
 }
 
@@ -40,37 +51,27 @@ body {
     white-space: nowrap;
 }
 
-/* 📍 根據 1000013249.png 的房間佈局精確定位 */
+/* 📍 根據 1000013249.png 房間佈局對位 */
+.treasure { top: 15%; left: 8%; }    /* 左側大廳 */
+.brain    { top: 22%; right: 15%; }   /* 右側展廊 */
+.soul     { top: 46%; left: 45%; }    /* 中央中庭 */
+.relation { bottom: 25%; right: 12%; } /* 右下角落 */
+.story    { bottom: 18%; left: 15%; width: 130px; } /* 底部大間 */
 
-/* 鎮館之寶：放在左側陽光大門區 */
-.treasure { top: 15%; left: 10%; }
-
-/* 心腦展廳：放在右後方轉角展間 */
-.brain { top: 22%; right: 15%; }
-
-/* 心靈會所：放在中央圓型動線區 */
-.soul { top: 48%; left: 45%; }
-
-/* 關係雅座：放在右下方溫馨休息區 */
-.relation { bottom: 25%; right: 12%; }
-
-/* 生命劇場：放在左下方大型互動區 */
-.story { bottom: 18%; left: 15%; width: 130px; }
-
-/* 幸福智多星 [cite: 2026-01-22]：固定在底部的導覽條 */
-.master-bar {
+/* 幸福智多星：懸浮底部接待台 [cite: 2026-01-22] */
+.mastermind-card {
     position: fixed;
-    bottom: 20px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 85%;
-    max-width: 400px;
+    width: 88%;
+    max-width: 380px;
     background: white;
     padding: 10px 20px;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    border-left: 5px solid #d68a5a;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-left: 6px solid #d68a5a;
     z-index: 100;
 }
