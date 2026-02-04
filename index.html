@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天使笑長 Angel - 幸福教養展覽館</title>
+    <title>天使笑長 Angel - 幸福教養概念館</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,57 +17,51 @@
             <div class="hall-entrance treasure-hall" data-target="treasure-content">
                 <img src="home.webp" alt="教養幸福經">
                 <div class="hall-tag">館藏精華</div>
-                <div class="hall-title">📖 鎮館之寶：教養幸福經</div>
+                <div class="hall-label">📖 鎮館之寶：教養幸福經</div>
             </div>
             
-            <div class="hall-entrance" data-target="brain-content">
+            <div class="hall-entrance brain-hall" data-target="brain-content">
                 <img src="brain.webp" alt="心腦展廳">
-                <div class="hall-title">🏛️ 心腦展廳</div>
+                <div class="hall-label">🏛️ 心腦展廳</div>
             </div>
             
-            <div class="hall-entrance" data-target="soul-content">
+            <div class="hall-entrance soul-hall" data-target="soul-content">
                 <img src="soul.webp" alt="心靈會所">
-                <div class="hall-title">🧘 心靈會所</div>
+                <div class="hall-label">🧘 心靈會所</div>
             </div>
             
-            <div class="hall-entrance" data-target="relation-content">
+            <div class="hall-entrance relation-hall" data-target="relation-content">
                 <img src="relation.jpg" alt="關係雅座">
-                <div class="hall-title">☕ 關係雅座</div>
+                <div class="hall-label">☕ 關係雅座</div>
             </div>
             
-            <div class="hall-entrance" data-target="life-content">
+            <div class="hall-entrance story-hall" data-target="life-content">
                 <img src="story.webp" alt="生命劇場">
-                <div class="hall-title">🎭 生命劇場</div>
+                <div class="hall-label">🎭 生命劇場</div>
             </div>
         </section>
 
-        <section class="energy-section">
-            <div class="energy-card">
-                <h3>🌟 點擊能量瓶，鼓勵自己的用心</h3>
-                <div class="bottle-container" id="energy-bottle">
-                    <div class="energy-fill"></div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3105/3105807.png" alt="能量瓶" class="bottle-img">
+        <section class="mastermind-section">
+            <div class="mastermind-card">
+                <img src="1769671255343.jpg" alt="智多星" class="master-avatar">
+                <div class="master-info">
+                    <h3>🌟 幸福智多星</h3>
+                    <p>輸入教養問題，自動匹配解決方案 [cite: 2026-01-20]</p>
                 </div>
-                <p class="energy-text">已累積能量：<span id="energy-count">0</span> 度</p>
-                <p class="sub-text">給愛一個儀式感，為幸福補充能量</p>
+                <button class="master-btn">諮詢入口</button>
             </div>
         </section>
 
-        <div id="display-zone">
+        <div id="content-display">
             <section id="treasure-content" class="hall-content active">
-                <div class="detail-card">
+                <div class="card">
                     <h2>📜 鎮館之寶：教養幸福經</h2>
-                    <p>這是笑長為您準備的智慧結晶，讓愛發揮力量 [cite: 2026-01-20]。</p>
+                    <p>笑長親自規劃，結合心腦科學實踐 [cite: 2026-01-20]。</p>
                     <button class="action-btn">🧘 進入深度閱讀</button>
                 </div>
             </section>
-            </div>
+        </div>
     </main>
-
-    <div class="mastermind-float" onclick="toggleMastermind()">
-        <img src="1769671255343.jpg" alt="智多星">
-        <span class="float-tag">智多星</span>
-    </div>
 
     <script src="script.js"></script>
 </body>
