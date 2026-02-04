@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
             
-            // 隱藏所有，顯示目標
+            // 移除所有啟動狀態
             contents.forEach(c => c.classList.remove('active'));
+            
+            // 啟動目標展廳
             const target = document.getElementById(targetId);
             if(target) {
                 target.classList.add('active');
