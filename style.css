@@ -1,0 +1,300 @@
+:root {
+    --primary-color: #d68a5a; /* 主色調 */
+    --accent-color: #e0b090; /* 次要色調 */
+    --bg-color: #fdf5e6; /* 背景色 */
+    --card-bg: #ffffff; /* 卡片背景色 */
+    --text-color: #333;
+    --heading-color: #8b5e3c;
+    --border-radius-lg: 20px;
+    --border-radius-md: 10px;
+    --shadow-light: 0 4px 15px rgba(0,0,0,0.05);
+    --shadow-md: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* 防止水平滾動 */
+}
+
+/* Header */
+.main-header {
+    text-align: center;
+    padding: 20px;
+    background: var(--card-bg);
+    border-bottom: 2px solid #eee;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 20px;
+}
+.main-header h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+.main-header p {
+    color: var(--heading-color);
+    font-size: 1rem;
+    margin-top: 0;
+}
+.main-header img {
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-top: 15px;
+}
+
+/* Gallery Map (Exhibition Hall Navigation) */
+.gallery-container {
+    padding: 0 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2x2 佈局 */
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.hall-entrance {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 15px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hall-entrance:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+.hall-entrance img {
+    width: 80px; /* 統一圖示大小 */
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 10px;
+}
+.hall-title {
+    font-weight: bold;
+    color: var(--heading-color);
+    font-size: 0.95rem;
+}
+
+/* Treasure Hall - 特殊樣式 */
+.treasure-hall {
+    grid-column: 1 / span 2; /* 橫跨兩格 */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white !important;
+    padding: 25px !important;
+    font-size: 1.2rem !important;
+    border: 3px solid #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    display: flex; /* 讓內容居中 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.treasure-hall .hall-title {
+    color: white !important;
+    font-size: 1.1rem !important;
+    margin-top: 10px;
+}
+.treasure-hall img {
+    border: 2px solid white;
+}
+
+
+/* Hall Content Sections */
+.hall-content {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 30px 20px;
+    margin-top: 20px;
+    box-shadow: var(--shadow-light);
+    display: none; /* 預設隱藏 */
+    animation: fadeIn 0.5s ease-out;
+}
+.hall-content.active {
+    display: block; /* 顯示選中的展廳 */
+}
+
+.hall-content h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.hall-content h3 {
+    color: var(--heading-color);
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.content-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.video-item, .workshop-item {
+    background: #f9f9f9;
+    border-radius: var(--border-radius-md);
+    padding: 15px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.video-item img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 10px;
+}
+.action-btn, .mastermind-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.action-btn:hover, .mastermind-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Practice Workshop */
+.practice-workshop, .happiness-mastermind, .energy-bottle {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 30px 20px;
+    margin-top: 20px;
+    box-shadow: var(--shadow-light);
+}
+
+.practice-workshop h2, .happiness-mastermind h2, .energy-bottle h2 {
+    border-left: 5px solid var(--accent-color);
+    padding-left: 10px;
+    color: var(--heading-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.workshop-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.workshop-item {
+    padding: 12px;
+}
+.workshop-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.happiness-mastermind .mastermind-btn {
+    background: #ffd700; /* 黃色鈕扣 */
+    color: var(--heading-color);
+}
+.happiness-mastermind .mastermind-btn:hover {
+    background: #ffcc00;
+}
+
+.energy-bottle .bottle-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+.energy-bottle .bottle-display img {
+    width: 80px;
+    height: 120px;
+    object-fit: contain;
+}
+.energy-bottle .bottle-display p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+#energy-count {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+#add-energy-btn {
+    background: #9ccc65; /* 綠色按鈕 */
+}
+#add-energy-btn:hover {
+    background: #8bc34a;
+}
+
+/* Floating Tools (PWA 功能，智多星和能量瓶快捷) */
+.floating-tools {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+.tool-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tool-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+.mastermind-tool {
+    background: #ffd700; /* 智多星專屬黃色 */
+    color: var(--heading-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .main-header h1 { font-size: 1.5rem; }
+    .gallery-map { grid-template-columns: 1fr; } /* 手機上變單列 */
+    .treasure-hall { grid-column: 1 / span 1; } /* 鎮館之寶也變單列 */
+}
