@@ -1,82 +1,76 @@
-:root {
-    --primary: #d68a5a;
-    --glass: rgba(255, 255, 255, 0.9);
-}
-
-/* 1. 將地圖設為全螢幕底圖 */
+/* 全螢幕背景設定 */
 body {
     margin: 0;
     padding: 0;
-    background: url('map-bg.png') no-repeat center center fixed;
-    background-size: cover; /* 自動鋪滿全螢幕 */
+    /* 這裡務必確保檔名與您的圖檔一致 */
+    background: url('1000013249.png') no-repeat center center fixed;
+    background-size: cover;
     height: 100vh;
-    overflow: hidden; /* 防止捲動，維持 APP 感 */
+    overflow: hidden; /* 保持地圖感，不隨意滾動 */
     font-family: "Microsoft JhengHei", sans-serif;
 }
 
-/* 2. 核心：導覽標籤（自動縮小圖片） */
-.map-cell, .hall-entrance {
-    position: absolute; /* 開啟對位功能 */
-    width: 110px;       /* 鎖定寬度，不再巨大 */
-    background: var(--glass);
+/* 讓按鈕變成精緻的「地圖標籤」 */
+.map-cell {
+    position: absolute;
+    width: 100px; /* 自動縮小，不用自己轉檔 */
+    background: rgba(255, 255, 255, 0.85);
     border: 2px solid white;
-    border-radius: 15px;
-    padding: 6px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     text-align: center;
     cursor: pointer;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 10;
 }
 
-.map-cell:active { transform: scale(0.9); }
-
-/* 自動裁剪圖片，保證不變形 */
 .map-cell img {
     width: 100%;
-    height: 65px;
-    object-fit: cover;
-    border-radius: 10px;
+    height: 60px;
+    object-fit: cover; /* 自動裁切多餘部分，保證不變形 */
+    border-radius: 8px;
 }
 
 .label {
-    font-size: 0.75rem;
+    font-size: 11px;
     font-weight: bold;
-    color: var(--primary);
-    margin-top: 4px;
+    color: #d68a5a;
+    margin-top: 3px;
+    white-space: nowrap;
 }
 
-/* 3. 📍 精確對位座標 (您可以根據您的圖隨時微調百分比) */
+/* 📍 根據 1000013249.png 的房間佈局精確定位 */
 
-/* 鎮館之寶：左上方入口 [cite: 2026-01-20] */
-.treasure { top: 18%; left: 12%; }
+/* 鎮館之寶：放在左側陽光大門區 */
+.treasure { top: 15%; left: 10%; }
 
-/* 心腦展廳：右側長廊區 [cite: 2026-01-20] */
+/* 心腦展廳：放在右後方轉角展間 */
 .brain { top: 22%; right: 15%; }
 
-/* 心靈會所：中間圓形區 [cite: 2026-01-20] */
+/* 心靈會所：放在中央圓型動線區 */
 .soul { top: 48%; left: 45%; }
 
-/* 關係雅座：右下角房間 [cite: 2026-01-20] */
-.relation { bottom: 25%; right: 10%; }
+/* 關係雅座：放在右下方溫馨休息區 */
+.relation { bottom: 25%; right: 12%; }
 
-/* 生命劇場：底部寬闊展廳 [cite: 2026-01-20] */
-.story { bottom: 15%; left: 18%; }
+/* 生命劇場：放在左下方大型互動區 */
+.story { bottom: 18%; left: 15%; width: 130px; }
 
-/* 4. 幸福智多星：懸浮底部接待台 [cite: 2026-01-22] */
-.mastermind-card {
+/* 幸福智多星 [cite: 2026-01-22]：固定在底部的導覽條 */
+.master-bar {
     position: fixed;
-    bottom: 25px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 85%;
     max-width: 400px;
     background: white;
-    border-radius: 50px;
     padding: 10px 20px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    border-left: 6px solid var(--primary);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-left: 5px solid #d68a5a;
     z-index: 100;
 }
