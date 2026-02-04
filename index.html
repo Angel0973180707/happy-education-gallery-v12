@@ -14,50 +14,62 @@
 
     <main class="gallery-container">
         <section class="gallery-map">
-            <div class="hall-entrance treasure-hall" data-target="treasure-content">
-                <img src="home.webp" alt="教養幸福經">
-                <div class="hall-tag">館藏精華</div>
-                <div class="hall-label">📖 鎮館之寶：教養幸福經</div>
+            <div class="map-cell treasure" data-target="treasure-content">
+                <img src="home.webp" alt="幸福經">
+                <div class="cell-overlay">
+                    <span class="tag">💡 館藏精華</span>
+                    <h3>📖 教養幸福經</h3>
+                </div>
             </div>
             
-            <div class="hall-entrance brain-hall" data-target="brain-content">
-                <img src="brain.webp" alt="心腦展廳">
-                <div class="hall-label">🏛️ 心腦展廳</div>
+            <div class="map-cell brain" data-target="brain-content">
+                <img src="brain.webp" alt="心腦">
+                <div class="cell-overlay"><h3>🏛️ 心腦展廳</h3></div>
             </div>
             
-            <div class="hall-entrance soul-hall" data-target="soul-content">
-                <img src="soul.webp" alt="心靈會所">
-                <div class="hall-label">🧘 心靈會所</div>
+            <div class="map-cell soul" data-target="soul-content">
+                <img src="soul.webp" alt="心靈">
+                <div class="cell-overlay"><h3>🧘 心靈會所</h3></div>
             </div>
             
-            <div class="hall-entrance relation-hall" data-target="relation-content">
-                <img src="relation.jpg" alt="關係雅座">
-                <div class="hall-label">☕ 關係雅座</div>
+            <div class="map-cell relation" data-target="relation-content">
+                <img src="relation.jpg" alt="關係">
+                <div class="cell-overlay"><h3>☕ 關係雅座</h3></div>
             </div>
             
-            <div class="hall-entrance story-hall" data-target="life-content">
+            <div class="map-cell story" data-target="life-content">
                 <img src="story.webp" alt="生命劇場">
-                <div class="hall-label">🎭 生命劇場</div>
+                <div class="cell-overlay"><h3>🎭 生命劇場</h3></div>
             </div>
         </section>
 
-        <div id="display-zone">
-            <section id="treasure-content" class="hall-content active">
-                <div class="detail-card">
+        <section class="tool-zone">
+            <div class="tool-item">
+                <img src="1769671255343.jpg" class="avatar">
+                <div class="info">
+                    <h4>🌟 幸福智多星</h4>
+                    <p>您的專屬教養顧問</p>
+                </div>
+                <button class="btn">諮詢</button>
+            </div>
+            <div class="tool-item">
+                <img src="tool.webp" class="icon">
+                <div class="info">
+                    <h4>📦 實踐工房</h4>
+                    <p>情緒斷點工具箱</p>
+                </div>
+                <button class="btn">開啟</button>
+            </div>
+        </section>
+
+        <div id="content-viewer">
+            <section id="treasure-content" class="content-panel active">
+                <div class="inner-card">
                     <h2>📜 鎮館之寶：教養幸福經</h2>
-                    <p>笑長親自規劃，結合心腦科學實踐。</p>
-                    <button class="action-btn">🧘 進入深度閱讀</button>
+                    <p>笑長親自規劃，結合心腦科學實踐，為您提供最溫暖的教養引導。</p>
+                    <button class="close-btn">閱讀完畢</button>
                 </div>
             </section>
-        </div>
-        
-        <div class="master-card">
-            <img src="1769671255343.jpg" alt="智多星" class="master-img">
-            <div class="master-text">
-                <h3>🌟 幸福智多星</h3>
-                <p>輸入教養問題，自動匹配解決方案。</p>
-            </div>
-            <button class="master-btn">諮詢入口</button>
         </div>
     </main>
 
