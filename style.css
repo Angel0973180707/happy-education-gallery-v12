@@ -1,48 +1,51 @@
-/* 徹底清空背景與間距 */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* 1. 徹底清場，不留任何餘地 */
+* { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
 
 body, html {
     width: 100vw !important;
     height: 100vh !important;
-    overflow: hidden !important; /* 強制不准滾動 */
-    background: url('map-pg.png') no-repeat center center !important;
+    overflow: hidden !important; /* 強制關閉滾動，這才是地圖感 */
+    background: url('1000013249.png') no-repeat center center !important;
     background-size: cover !important;
 }
 
-/* 這裡是地圖點：強制縮小，不准變大 */
-.map-point {
+/* 2. 這是您的地圖點：鎖死大小，不准撐開 */
+.pin {
     position: absolute !important;
-    width: 100px !important; /* 強制縮小到 100 像素 */
-    background: rgba(255, 255, 255, 0.9) !important;
+    width: 95px !important; /* 縮小到 95 像素 */
+    height: auto !important;
+    background: rgba(255, 255, 255, 0.95) !important;
     border: 2px solid white !important;
     border-radius: 12px !important;
-    padding: 5px !important;
-    text-align: center !important;
+    padding: 4px !important;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+    z-index: 50 !important; /* 確保它在最前面 */
 }
 
-.map-point img {
+.pin img {
     width: 100% !important;
     height: 60px !important;
-    object-fit: cover !important; /* 強制裁切，不變形 */
+    object-fit: cover !important; /* 自動裁切，不管原圖多大 */
     border-radius: 8px !important;
 }
 
-.map-point b {
+.pin p {
     font-size: 11px !important;
+    font-weight: bold !important;
     color: #d68a5a !important;
-    display: block !important;
+    text-align: center !important;
+    margin-top: 3px !important;
 }
 
-/* 📍 座標點 (根據您的 map-pg.png 房間位置) */
-.pos-1 { top: 18%; left: 10%; }    /* 鎮館之寶 */
-.pos-2 { top: 22%; right: 15%; }   /* 心腦展廳 */
-.pos-3 { top: 48%; left: 45%; }    /* 心靈會所 */
-.pos-4 { bottom: 25%; right: 10%; } /* 關係雅座 */
-.pos-5 { bottom: 18%; left: 15%; }  /* 生命劇場 */
+/* 📍 座標對位 (請根據 1000013249.png 視覺手動微調) */
+.p1 { top: 16%; left: 10%; }    /* 鎮館之寶 */
+.p2 { top: 20%; right: 15%; }   /* 心腦展廳 */
+.p3 { top: 48%; left: 45%; }    /* 心靈會所 */
+.p4 { bottom: 25%; right: 12%; } /* 關係雅座 */
+.p5 { bottom: 18%; left: 15%; }  /* 生命劇場 */
 
 /* 幸福智多星 [cite: 2026-01-20, 2026-01-22] */
-.master-panel {
+.master {
     position: fixed !important;
     bottom: 20px !important;
     left: 50% !important;
@@ -50,8 +53,9 @@ body, html {
     width: 85% !important;
     background: white !important;
     border-radius: 50px !important;
-    padding: 10px !important;
+    padding: 8px 15px !important;
     display: flex !important;
     align-items: center !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3) !important;
+    z-index: 100 !important;
 }
