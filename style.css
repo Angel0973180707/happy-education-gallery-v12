@@ -1,55 +1,56 @@
-/* 關鍵 1：徹底釋放所有容器，不准有任何邊距 */
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    overflow: hidden !important; /* 關鍵：鎖死捲軸，圖片才不會排隊 */
+/* 1. 徹底清空，禁止任何滾動條出現 */
+* { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
+
+body, html {
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important; /* 核心：禁止捲動，畫面才會像一張地圖 */
 }
 
-/* 關鍵 2：將您的手繪圖 1000013249.png 設為唯一的舞台 */
+/* 2. 背景設定為您的手繪圖 1000013249.png */
 body {
     background: url('1000013249.png') no-repeat center center !important;
     background-size: cover !important;
     position: relative !important;
+    font-family: "Microsoft JhengHei", sans-serif;
 }
 
-/* 關鍵 3：將展廳圖片縮小成「微型標籤」 */
-.map-tag {
-    position: absolute !important; /* 核心：這才能讓圖片在地圖上漂浮 */
-    width: 90px !important;       /* 核心：不管原圖多大，強制縮小 */
+/* 3. 展廳標籤：將大圖片強制縮小為導覽牌 */
+.hall-tag {
+    position: absolute !important; /* 核心：讓標籤可以自由定位 */
+    width: 95px !important;        /* 核心：強制縮小原圖 */
     background: rgba(255, 255, 255, 0.9) !important;
     border: 2px solid white !important;
     border-radius: 12px !important;
     padding: 4px !important;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2) !important;
-    z-index: 99 !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2) !important;
+    z-index: 50 !important;
 }
 
-.map-tag img {
+.hall-tag img {
     width: 100% !important;
-    height: 55px !important;
-    object-fit: cover !important; /* 核心：自動裁切，保證不變形 */
+    height: 60px !important;
+    object-fit: cover !important; /* 核心：自動裁切原圖中心，不變形 */
     border-radius: 8px !important;
 }
 
-.map-tag p {
-    font-size: 10px !important;
+.hall-tag p {
+    font-size: 11px !important;
     font-weight: bold !important;
     color: #d68a5a !important;
     text-align: center !important;
-    margin-top: 2px !important;
+    margin-top: 3px !important;
 }
 
-/* 📍 座標點：根據您的地圖房間精確對位 */
-.loc-1 { top: 18%; left: 10%; }    /* 鎮館之寶入口 */
-.loc-2 { top: 22%; right: 15%; }   /* 心腦展廳長廊 */
-.loc-3 { top: 48%; left: 45%; }    /* 心靈會所中央 */
-.loc-4 { bottom: 25%; right: 12%; } /* 關係雅座角落 */
-.loc-5 { bottom: 18%; left: 15%; }  /* 生命劇場入口 */
+/* 📍 座標對位：精確瞄準房間入口 (座標為視覺預估，可隨時微調) */
+.loc-treasure { top: 15%; left: 8%; }    /* 鎮館之寶入口 */
+.loc-brain    { top: 22%; right: 15%; }   /* 心腦展廳廊道 */
+.loc-soul     { top: 46%; left: 45%; }    /* 心靈會所中心 */
+.loc-relation { bottom: 25%; right: 12%; } /* 關係雅座角落 */
+.loc-story    { bottom: 18%; left: 15%; width: 120px !important; } /* 生命劇場入口 */
 
-/* 幸福智多星 [cite: 2026-01-20, 2026-01-22] */
-.happiness-star {
+/* 4. 幸福智多星 [cite: 2026-01-20, 2026-01-22] */
+.master-float {
     position: fixed !important;
     bottom: 20px !important;
     left: 50% !important;
@@ -57,9 +58,9 @@ body {
     width: 85% !important;
     background: white !important;
     border-radius: 50px !important;
-    padding: 8px 15px !important;
+    padding: 8px 18px !important;
     display: flex !important;
     align-items: center !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
     z-index: 100 !important;
 }
