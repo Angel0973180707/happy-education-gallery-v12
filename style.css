@@ -1,51 +1,55 @@
-/* 1. 徹底清場，不留任何餘地 */
-* { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
-
-body, html {
-    width: 100vw !important;
-    height: 100vh !important;
-    overflow: hidden !important; /* 強制關閉滾動，這才是地圖感 */
-    background: url('1000013249.png') no-repeat center center !important;
-    background-size: cover !important;
+/* 關鍵 1：徹底釋放所有容器，不准有任何邊距 */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important; /* 關鍵：鎖死捲軸，圖片才不會排隊 */
 }
 
-/* 2. 這是您的地圖點：鎖死大小，不准撐開 */
-.pin {
-    position: absolute !important;
-    width: 95px !important; /* 縮小到 95 像素 */
-    height: auto !important;
-    background: rgba(255, 255, 255, 0.95) !important;
+/* 關鍵 2：將您的手繪圖 1000013249.png 設為唯一的舞台 */
+body {
+    background: url('1000013249.png') no-repeat center center !important;
+    background-size: cover !important;
+    position: relative !important;
+}
+
+/* 關鍵 3：將展廳圖片縮小成「微型標籤」 */
+.map-tag {
+    position: absolute !important; /* 核心：這才能讓圖片在地圖上漂浮 */
+    width: 90px !important;       /* 核心：不管原圖多大，強制縮小 */
+    background: rgba(255, 255, 255, 0.9) !important;
     border: 2px solid white !important;
     border-radius: 12px !important;
     padding: 4px !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
-    z-index: 50 !important; /* 確保它在最前面 */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2) !important;
+    z-index: 99 !important;
 }
 
-.pin img {
+.map-tag img {
     width: 100% !important;
-    height: 60px !important;
-    object-fit: cover !important; /* 自動裁切，不管原圖多大 */
+    height: 55px !important;
+    object-fit: cover !important; /* 核心：自動裁切，保證不變形 */
     border-radius: 8px !important;
 }
 
-.pin p {
-    font-size: 11px !important;
+.map-tag p {
+    font-size: 10px !important;
     font-weight: bold !important;
     color: #d68a5a !important;
     text-align: center !important;
-    margin-top: 3px !important;
+    margin-top: 2px !important;
 }
 
-/* 📍 座標對位 (請根據 1000013249.png 視覺手動微調) */
-.p1 { top: 16%; left: 10%; }    /* 鎮館之寶 */
-.p2 { top: 20%; right: 15%; }   /* 心腦展廳 */
-.p3 { top: 48%; left: 45%; }    /* 心靈會所 */
-.p4 { bottom: 25%; right: 12%; } /* 關係雅座 */
-.p5 { bottom: 18%; left: 15%; }  /* 生命劇場 */
+/* 📍 座標點：根據您的地圖房間精確對位 */
+.loc-1 { top: 18%; left: 10%; }    /* 鎮館之寶入口 */
+.loc-2 { top: 22%; right: 15%; }   /* 心腦展廳長廊 */
+.loc-3 { top: 48%; left: 45%; }    /* 心靈會所中央 */
+.loc-4 { bottom: 25%; right: 12%; } /* 關係雅座角落 */
+.loc-5 { bottom: 18%; left: 15%; }  /* 生命劇場入口 */
 
 /* 幸福智多星 [cite: 2026-01-20, 2026-01-22] */
-.master {
+.happiness-star {
     position: fixed !important;
     bottom: 20px !important;
     left: 50% !important;
@@ -56,6 +60,6 @@ body, html {
     padding: 8px 15px !important;
     display: flex !important;
     align-items: center !important;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
     z-index: 100 !important;
 }
